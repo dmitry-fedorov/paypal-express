@@ -44,6 +44,7 @@ module Paypal
       private
 
       def post(method, params)
+        RestClient.log = STDOUT
         RestClient.post(self.class.endpoint, common_params.merge(params).merge(:METHOD => method))
       end
 
